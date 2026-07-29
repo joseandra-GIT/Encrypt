@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,7 +104,7 @@
             <div id="textModeArea" class="block">
                 <label for="inputText" class="flex justify-between text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     <span>Mensaje Original / Encriptado</span>
-                    <span id="charCountInput" class="text-xs text-slate-500">0 caracteres</span>
+                    <span id="charCountInput" class="text-xs text-slate-500 dark:text-slate-400">0 caracteres</span>
                 </label>
                 <textarea id="inputText" rows="4" class="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-300 dark:border-slate-700 rounded-xl p-4 text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none font-mono text-sm" placeholder="Escribe el mensaje que deseas encriptar o pega el texto encriptado aquí..."></textarea>
             </div>
@@ -118,7 +118,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
                     <p class="text-slate-600 dark:text-slate-300 font-medium">Haz clic o arrastra un archivo aquí</p>
-                    <p class="text-xs text-slate-500 mt-2">Para encriptar: Cualquier formato (Max 10MB)<br>Para desencriptar: Archivos .enc</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Para encriptar: Cualquier formato (Max 10MB)<br>Para desencriptar: Archivos .enc</p>
                     
                     <!-- File Info Badge -->
                     <div id="fileInfo" class="hidden mt-4 inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 px-4 py-2 rounded-lg text-sm border border-blue-200 dark:border-blue-800">
@@ -133,7 +133,7 @@
             <div class="bg-white/50 dark:bg-slate-900/30 p-4 rounded-xl border border-slate-200 dark:border-slate-700/50">
                 <label for="secretKey" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Palabra Clave (Contraseña)</label>
                 <div class="relative">
-                    <input type="password" id="secretKey" class="w-full bg-slate-50 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-700 rounded-lg py-3 pl-4 pr-12 text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-mono text-sm" placeholder="Ingresa tu clave secreta...">
+                    <input type="password" id="secretKey" class="w-full bg-slate-50 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-700 rounded-lg py-3 pl-4 pr-12 text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-mono text-sm" placeholder="Ingresa tu clave secreta...">
                     <button id="togglePassword" class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 focus:outline-none">
                         <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -144,8 +144,8 @@
                 <!-- Password Strength Meter -->
                 <div class="mt-3">
                     <div class="flex justify-between text-xs mb-1">
-                        <span class="text-slate-500">Fuerza de la clave:</span>
-                        <span id="pwdStrengthText" class="font-semibold text-slate-500">Ninguna</span>
+                        <span class="text-slate-500 dark:text-slate-400">Fuerza de la clave:</span>
+                        <span id="pwdStrengthText" class="font-semibold text-slate-500 dark:text-slate-400">Ninguna</span>
                     </div>
                     <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5">
                         <div id="pwdStrengthBar" class="bg-transparent h-1.5 rounded-full" style="width: 0%"></div>
@@ -185,8 +185,8 @@
 
                 <!-- Text Output -->
                 <div id="textOutputZone" class="relative">
-                    <textarea id="outputText" rows="4" class="w-full bg-slate-50 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-700 rounded-xl p-4 text-slate-800 dark:text-green-400 focus:outline-none resize-none font-mono text-sm transition-colors duration-300" readonly placeholder="El resultado aparecerá aquí..."></textarea>
-                    <span id="charCountOutput" class="absolute bottom-3 right-3 text-xs text-slate-400"></span>
+                    <textarea id="outputText" rows="4" class="w-full bg-slate-50 dark:bg-slate-900/80 border border-slate-300 dark:border-slate-700 rounded-xl p-4 text-slate-800 dark:text-green-400 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none resize-none font-mono text-sm transition-colors duration-300" readonly placeholder="El resultado aparecerá aquí..."></textarea>
+                    <span id="charCountOutput" class="absolute bottom-3 right-3 text-xs text-slate-400 dark:text-slate-500"></span>
                 </div>
 
                 <!-- File Output -->
@@ -334,7 +334,7 @@
             if (pwd.length === 0) {
                 bar.style.width = '0%';
                 text.textContent = 'Ninguna';
-                text.className = 'font-semibold text-slate-500';
+                text.className = 'font-semibold text-slate-500 dark:text-slate-400';
             } else if (score <= 2) {
                 bar.style.width = '33%';
                 bar.className = 'h-1.5 rounded-full bg-red-500';
@@ -421,7 +421,9 @@
 
             try {
                 const encrypted = CryptoJS.AES.encrypt(text, key).toString();
-                DOM.outputText.value = encrypted;
+                const promoLink = "\n\nDesencríptalo aquí: https://joseandra-git.github.io/Encrypt/";
+                
+                DOM.outputText.value = encrypted + promoLink;
                 DOM.outputText.classList.remove('text-red-500');
                 updateCharCounts();
                 showNotification("Mensaje encriptado con éxito.", "success");
@@ -434,8 +436,13 @@
         async function handleDecrypt() {
             if (state.currentMode === 'file') return handleFileDecrypt();
 
-            const text = DOM.inputText.value.trim();
+            let text = DOM.inputText.value.trim();
             const key = DOM.secretKey.value;
+
+            // Remover el link promocional si el usuario pegó el texto completo por accidente
+            if (text.includes("Desencríptalo aquí:")) {
+                text = text.split("Desencríptalo aquí:")[0].trim();
+            }
 
             if (!text) return showNotification("Ingresa el texto encriptado.", "warning");
             if (!key) return showNotification("La palabra clave es obligatoria.", "warning");
@@ -583,9 +590,14 @@
 
         // Share URL Feature
         async function shareURL() {
-            const text = DOM.outputText.value;
+            let text = DOM.outputText.value;
             if (!text || text.startsWith("ERROR:")) {
                 return showNotification("Genera un texto encriptado primero.", "warning");
+            }
+
+            // Remover la info promocional del link dinámico para no saturar la URL
+            if (text.includes("Desencríptalo aquí:")) {
+                text = text.split("Desencríptalo aquí:")[0].trim();
             }
 
             // Encode for URL
@@ -661,7 +673,7 @@
             // Reset Strength bar
             DOM.pwdStrengthBar.style.width = '0%';
             DOM.pwdStrengthText.textContent = 'Ninguna';
-            DOM.pwdStrengthText.className = 'font-semibold text-slate-500';
+            DOM.pwdStrengthText.className = 'font-semibold text-slate-500 dark:text-slate-400';
             
             showNotification("Datos limpiados.", "success");
             if (state.currentMode === 'text') DOM.inputText.focus();
